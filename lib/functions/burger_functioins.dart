@@ -20,11 +20,3 @@ Future<void> getAllBurgerProducts() async {
   burgerProductListNotifier.value.addAll(burgerProductDB.values);
   burgerProductListNotifier.notifyListeners();
 }
-// Future<void> getAllBurgerProducts() async {
-//   await Hive.openBox<BurgerProduct>('burger');
-
-//   final burgerProductDB = await Hive.openBox<BurgerProduct>('burger');
-//   burgerProductListNotifier.value.clear();
-//   burgerProductListNotifier.value.addAll(burgerProductDB.values.toList());
-//   burgerProductListNotifier.notifyListeners();
-// }

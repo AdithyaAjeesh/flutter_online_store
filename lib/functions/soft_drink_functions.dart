@@ -14,7 +14,7 @@ void addSoftDrinkProduct(SoftDrinkProduct value) async {
   softDrinkProductListNotifier.notifyListeners();
 }
 
-Future<void> getAllBiriyaniProducts() async {
+Future<void> getAllSoftDrinkProducts() async {
   await Hive.openBox<SoftDrinkProduct>('softdrink');
   final softDrinkProductDB = await Hive.openBox<SoftDrinkProduct>('softdrink');
   softDrinkProductListNotifier.value.clear();

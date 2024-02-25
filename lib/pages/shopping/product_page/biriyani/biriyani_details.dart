@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:futtter_store/data/biriyani_model/biriyani_model.dart';
+import 'package:futtter_store/data/cart_model/cart_model.dart';
+import 'package:futtter_store/functions/cart_function.dart';
 
 class BiriyaniDetailsScreen extends StatefulWidget {
   final BiriyaniProduct biriyaniProduct;
@@ -13,7 +14,6 @@ class BiriyaniDetailsScreen extends StatefulWidget {
 class _BiriyaniDetailsScreenState extends State<BiriyaniDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -128,7 +128,16 @@ class _BiriyaniDetailsScreenState extends State<BiriyaniDetailsScreen> {
           ),
           const SizedBox(height: 25),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              final cartItem = CartItem(
+                id: widget.biriyaniProduct.id,
+                name: widget.biriyaniProduct.name,
+                image: widget.biriyaniProduct.image,
+                price: widget.biriyaniProduct.price,
+                quantity: widget.biriyaniProduct.quantity,
+              );
+              addToCart(cartItem);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 255, 170, 59),
             ),

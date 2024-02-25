@@ -87,14 +87,16 @@ class _AdminPageState extends State<AdminPage> {
   }
 
   Future<void> pickImageFromGallery() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
     if (pickedFile == null) {
       return;
+    } else {
+      setState(() {
+        image = File(pickedFile.path);
+      });
     }
-    setState(() {
-      image = File(pickedFile.path);
-    });
   }
 
   Future<void> selectedCatagory() async {

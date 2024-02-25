@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:futtter_store/data/cart_model/cart_model.dart';
 import 'package:futtter_store/data/softdrink_model/soft_drink_model.dart';
+import 'package:futtter_store/functions/cart_function.dart';
 
 class SoftDrinkDetailsScreen extends StatefulWidget {
   final SoftDrinkProduct softDrinkProduct;
@@ -127,7 +129,16 @@ class _SoftDrinkDetailsScreenDetailsScreenState extends State<SoftDrinkDetailsSc
           ),
           const SizedBox(height: 25),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+               final cartItem = CartItem(
+                id: widget.softDrinkProduct.id,
+                name: widget.softDrinkProduct.name,
+                image: widget.softDrinkProduct.image,
+                price: widget.softDrinkProduct.price,
+                quantity: widget.softDrinkProduct.quantity,
+              );
+              addToCart(cartItem);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 255, 170, 59),
             ),

@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:futtter_store/data/biriyani_model/biriyani_model.dart';
 
 class BiriyaniProductCard extends StatefulWidget {

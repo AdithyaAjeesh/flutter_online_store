@@ -17,6 +17,7 @@ class SoftDrinkPage extends StatefulWidget {
 class _SoftDrinkPageState extends State<SoftDrinkPage> {
   @override
   Widget build(BuildContext context) {
+    getAllSoftDrinkProducts();
     return Scaffold(
       body: Column(
         children: [

@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:futtter_store/data/burger_model/burger_model.dart';
+import 'package:futtter_store/data/cart_model/cart_model.dart';
+import 'package:futtter_store/functions/cart_function.dart';
 
 class BurgerDetailsScreen extends StatefulWidget {
   final BurgerProduct burgerProduct;
@@ -127,7 +128,16 @@ class _BurgerDetailsScreenState extends State<BurgerDetailsScreen> {
           ),
           const SizedBox(height: 25),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              final cartItem = CartItem(
+                id: widget.burgerProduct.id,
+                name: widget.burgerProduct.name,
+                image: widget.burgerProduct.image,
+                price: widget.burgerProduct.price,
+                quantity: widget.burgerProduct.quantity,
+              );
+              addToCart(cartItem);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 255, 170, 59),
             ),
